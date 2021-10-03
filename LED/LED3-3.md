@@ -60,3 +60,67 @@ void loop()
   analogWrite(GLED, 0);
 }
 ````
+# 由九開始計算
+
+![image](https://user-images.githubusercontent.com/89329219/135739548-1361b167-0312-4184-aa63-6335a1172de5.png)
+
+
+
+````C
+int RLED = 13;
+int GLED = 11;
+
+
+int result, result2, result3;
+String d0 = "****** 9X9 Table ******";
+String d4 = "****** end ******";
+String d1, d2, d3;
+void setup()
+{
+  pinMode(RLED, OUTPUT);   // Configure PIN13
+  pinMode(GLED, OUTPUT);   // Configure PIN11
+  
+  Serial.begin(9600);
+
+}
+
+void loop()
+{
+  int aa = 0;
+
+  Serial.println(d0); 
+  
+  digitalWrite(RLED, HIGH);
+  analogWrite(GLED, aa); 
+  
+  for (int i=9;i>=1; i=i-3){
+    for (int j=1;j<=9; j++){
+      
+      result = i*j;
+      result2 = (i-1)*j;
+      result3 = (i-2)*j;
+      
+      d1 = String(String(i) + "X" + String(j) + "=" + String(result));
+      d2 = String(String(i-1) + "X" + String(j) + "=" + String(result2));
+      d3 = String(String(i-2) + "X" + String(j) + "=" + String(result3));
+      
+      Serial.println(d1 + ", " + d2 + ", " + d3);
+
+
+       
+      aa+=1;
+      
+      delay(100);
+    } // loop j
+    analogWrite(GLED, aa*3); 
+    Serial.println("");
+  } // loop i
+Serial.println(d4);
+  digitalWrite(RLED, LOW);
+  analogWrite(GLED, 255); 
+  delay(2000);	
+  analogWrite(GLED, 0);
+
+
+  }
+  ````
