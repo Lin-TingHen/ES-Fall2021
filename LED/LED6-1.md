@@ -1,4 +1,9 @@
 # Lab 6-1 用16X2 LCD 顯示器來顯示4X4鍵盤輸入的數字 (0, 1, 2, .., 9), 若輸入的字數≥16則換到下一列, 若兩皆滿, 則清除劃面重新由Row=0, Col=0開始
+
+## ![image](https://user-images.githubusercontent.com/89329219/139567392-80426f8b-a8b9-475b-ac3a-ed171792aaa2.png)
+
+
+
 ![image](https://user-images.githubusercontent.com/89329219/139566815-68b3b256-155b-437f-b086-08ae972d7cda.png)
 
 ````C
@@ -57,3 +62,5 @@ if (key){
   }
 }
 ````
+## Datasheet: 4X4 Matrix Membrane Keypad 
+https://cdn.sparkfun.com/assets/f/f/a/5/0/DS-16038.pdf
